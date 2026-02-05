@@ -1,6 +1,6 @@
 "use client"
 import { motion, Variants } from "motion/react";
-import Threads from "./Doodles/Threads";
+import RippleGrid from "./Doodles/RippleGrid";
 
 const container = {
   hidden: {},
@@ -52,10 +52,15 @@ const Hero = () => {
         }}
       >
         <div style={{ width: '100%', height: '600px', position: 'relative' }}>
-          <Threads
-            amplitude={2}
-            distance={0}
-            enableMouseInteraction
+          <RippleGrid
+            enableRainbow={false}
+            gridColor="#f8f8f4"
+            rippleIntensity={0.05}
+            gridSize={10}
+            gridThickness={15}
+            mouseInteraction={true}
+            mouseInteractionRadius={1.2}
+            opacity={0.8}
           />
         </div>
       </motion.div>
