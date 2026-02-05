@@ -83,9 +83,9 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <Card
               key={`${testimonial.title}-${index}`}
-              className="transition-all duration-300 hover:grayscale-0 grayscale w-[310px] sm:w-[450px] rounded-none flex-shrink-0 py-8 md:py-10 flex flex-col"
+              className="transition-all duration-300 hover:grayscale-0 grayscale w-[250px] sm:w-[450px] rounded-none flex-shrink-0 py-8 md:py-10 flex flex-col"
             >
-              <CardContent className="text-muted-foreground font-medium border-none text-lg px-8 md:px-10 flex-1">
+              <CardContent className="text-muted-foreground font-medium border-none text-base sm:text-lg px-8 md:px-10 flex-1">
                 {testimonial.content}
               </CardContent>
               <CardFooter className="bg-transparent border-none flex items-center gap-4 px-8 md:px-10 pt-8 md:pt-10 mt-auto">
