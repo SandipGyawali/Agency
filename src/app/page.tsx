@@ -1,4 +1,5 @@
 import ContactUs from "@/components/Contact";
+import Features from "@/components/Features";
 import Hero from "@/components/Hero";
 import AnimatedLogoCloud from "@/components/LogoCloud";
 import Testimonials from "@/components/Testimonials";
@@ -10,11 +11,8 @@ function Home() {
         <Hero />
         <AnimatedLogoCloud />
         <Testimonials />
+        <Features />
         <ContactUs />
-        {/* <Contact />
-        <FAQ />
-        <Gallery /> */}
-        {/* <CTA /> */}
       </div>
     </main>
   );
