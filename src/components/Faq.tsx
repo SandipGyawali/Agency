@@ -1,109 +1,152 @@
 "use client";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/Accordion";
-import Container from "./Container";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-export default function FAQ() {
-  const faqItems = [
-    {
-      id: "item-1",
-      question: "What types of software services do you offer?",
-      answer:
-        "We specialize in custom software development, SaaS product development, web and mobile app development, API integrations, and cloud-based solutions. We also offer ongoing maintenance and support.",
-    },
-    {
-      id: "item-2",
-      question: "How do you price your software projects?",
-      answer:
-        "Pricing depends on the scope, complexity, and timeline of the project. We offer both fixed-price and hourly billing models. After an initial consultation, we’ll provide a detailed proposal and quote.",
-    },
-    {
-      id: "item-3",
-      question: "What is your typical project timeline?",
-      answer:
-        "Timelines vary based on project requirements. A simple MVP may take 4–6 weeks, while a more complex enterprise application can take several months. We always provide a clear timeline before starting.",
-    },
-    {
-      id: "item-4",
-      question: "Do you offer post-launch support and maintenance?",
-      answer:
-        "Yes, we offer flexible support plans to keep your software running smoothly post-launch. This includes bug fixes, updates, performance monitoring, and feature enhancements.",
-    },
-    {
-      id: "item-5",
-      question: "How do you ensure software quality?",
-      answer:
-        "We follow best practices in software engineering, including code reviews, automated testing, and QA testing at every stage of development. We also conduct user acceptance testing (UAT) before launch.",
-    },
-    {
-      id: "item-6",
-      question: "Can you work with our existing team or system?",
-      answer:
-        "Absolutely. We can integrate with your in-house team or legacy systems. Our developers are comfortable working with a wide range of tech stacks and can collaborate using your preferred tools and workflows.",
-    },
-    {
-      id: "item-7",
-      question: "What is your process for starting a new project?",
-      answer:
-        "We begin with a discovery session to understand your goals and requirements. From there, we move into planning, design, development, testing, and deployment. We maintain clear communication throughout.",
-    },
-    {
-      id: "item-8",
-      question: "Do you offer NDA and IP protection?",
-      answer:
-        "Yes, we’re happy to sign NDAs and ensure that all intellectual property rights belong to you. We take data security and confidentiality very seriously.",
-    },
-  ];
+const faqData = [
+  {
+    group: "Submissions",
+    items: [
+      {
+        q: "How can I submit my site?",
+        a: "Create an account, go to the Submissions page, and follow the steps to submit your site for review.",
+        h: true
+      },
+      {
+        q: "What size is the main image thumbnail?",
+        a: "The recommended thumbnail size is 1600×1200px for best quality.",
+        h: true
+      },
+      {
+        q: "Can I add more images/videos to my submission?",
+        a: "Yes, you can upload additional images and videos from the edit submission page.",
+        h: false
+      }
+    ]
+  },
+  {
+    group: "Approval",
+    items: [
+      {
+        q: "How long does it take for my site to be approved?",
+        a: "Reviews usually take 2–5 business days, depending on submission volume.",
+        h: true
+      },
+      {
+        q: "How can I edit my submission?",
+        a: "You can edit your submission anytime before approval from your dashboard.",
+        h: false
+      }
+    ]
+  },
+  {
+    group: "Billing",
+    items: [
+      {
+        q: "Can I submit website templates?",
+        a: "Yes, templates are allowed as long as they meet our quality guidelines.",
+        h: true
+      },
+      {
+        q: "How can I pay for a submission with a credit?",
+        a: "Credits can be applied at checkout when submitting your site.",
+        h: true,
+      },
+      {
+        q: "How can I add credits to my submission?",
+        a: "You can purchase credits from the Billing section of your account.",
+        h: true
+      }
+    ]
+  }
+];
+
+function FAQItem({ q, a }: { q: string, a: string }) {
+  const [open, setOpen] = useState(false);
 
   return (
-    <section
-      style={{ borderRadius: 40 }}
-      className="overflow-hidden bg-[#f4f4f4] pb-24 pt-16 m-1 sm:m-4"
-    >
-      <Container>
-        <div className="mx-auto max-w-3xl text-center">
-          <span className="text-body-xs-medium inline-flex h-8 items-center gap-2 rounded-[10px] border border-gray-200 bg-white px-3 py-0 leading-none shadow-[0_1px_2px_0_rgba(13,13,18,0.06)]">
-            <span className="relative flex size-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-black/50 opacity-75"></span>
-              <span className="relative inline-flex size-2 rounded-full bg-neutral-700"></span>
-            </span>
-            Faqs
-          </span>
-          <h2 className="font-semibold text-heading-1 mt-4 tracking-tight lg:text-[52px]">
-            Everything you need to Know
-          </h2>
-          <p className="text-body-md sm:text-body-lg mx-auto mt-2 max-w-2xl text-neutral-600">
-            Smarter decisions starts with clear answers
-          </p>
-        </div>
+    <div className="border-b border-dashed border-neutral-300 py-6">
+      <div className="flex items-center justify-between">
+        <h3 className="font-semibold text-neutral-900">{q}</h3>
+        <button
+          onClick={() => setOpen(!open)}
+          className={`rounded-lg border px-4 py-1 text-sm transition ${
+            open
+              ? "bg-neutral-900 text-white border-neutral-900"
+              : "bg-white text-neutral-900 border-neutral-300"
+          }`}
+        >
+          {open ? "Hide" : "View more"}
+        </button>
+      </div>
 
-        <div className="mx-auto mt-12 w-full">
-          <Accordion
-            type="single"
-            collapsible
-            className="w-full rounded-2xl py-3 space-y-2.5"
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.p
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+            className="mt-4 max-w-3xl overflow-hidden text-neutral-600 leading-relaxed"
           >
-            {faqItems.map((item) => (
-              <AccordionItem
-                key={item.id}
-                value={item.id}
-                className="bg-white px-8 md:py-2.5 rounded-xl"
-              >
-                <AccordionTrigger className="cursor-pointer text-base md:text-lg font-semibold">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent>
-                  <p className="text-base">{item.answer}</p>
-                </AccordionContent>
-              </AccordionItem>
+            {a}
+          </motion.p>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+export default function FAQ({ wantTitle = true, isGrouped = true }: { wantTitle?: boolean,  isGrouped?: boolean }) {
+  return (
+    <section className="mx-auto px-6 py-16">
+      {
+        wantTitle && (
+          <div className="grid grid-cols-1 gap-15 lg:grid-cols-7 lg:gap-12 mb-16">
+            <div className="col-span-3 font-medium">
+                <div className="border border-foreground/20 w-fit bg-white px-2 py-0.5">
+                  <p>
+                    Faqs
+                  </p>
+                </div>
+              </div>
+            <div className="col-span-4 ml-auto space-y-10 lg:pl-15">
+              <h1 className="text-2xl font-medium tracking-tight">
+                Everything You Need to Know About Our Process
+              </h1>
+              <p className="w-fit text-lg text-foreground/40 lg:translate-y-2">
+                Find answers to the most common questions about submitting your work and navigating 
+                our review process. We’ve compiled clear explanations to help you understand each step, 
+                so you can submit with confidence and get timely feedback.
+              </p>
+            </div>
+          </div>
+        )
+      }
+
+      {isGrouped && faqData.map((group, idx) => (
+        <div key={idx} className="mb-10 bg-white p-5">
+          <h3 className="mb-6 text-lg font-bold uppercase tracking-widest text-neutral-500">
+            {group.group}
+          </h3>
+
+          <div className="divide-y divide-dashed divide-neutral-300">
+            {group.items.map((item, i) => (
+              <FAQItem key={i} q={item.q} a={item.a} />
             ))}
-          </Accordion>
+          </div>
         </div>
-      </Container>
+      ))}
+
+      {!isGrouped && faqData.map((group, idx) => (
+          <div key={idx} className="bg-white px-5">
+            <div className="divide-y divide-dashed divide-neutral-300">
+              {group.items.filter((val => val.h === true)).map((item, i) => (
+                <FAQItem key={i} q={item.q} a={item.a} />
+              ))}
+            </div>
+          </div>
+        ))
+      }
     </section>
   );
 }

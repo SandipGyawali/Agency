@@ -1,4 +1,5 @@
 import ContactUs from "@/components/Contact";
+import FAQ from "@/components/Faq";
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
 import AnimatedLogoCloud from "@/components/LogoCloud";
@@ -13,6 +14,7 @@ function Home() {
         <Testimonials />
         <Features />
         <ContactUs />
+        <FAQ wantTitle={true} isGrouped={false}/>
       </div>
     </main>
   );
