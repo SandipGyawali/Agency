@@ -96,7 +96,7 @@ function BaseLayout({ children }: BaseLayoutInterface) {
         <motion.div
           layout
           // style={{ borderTopLeftRadius: 40, borderTopRightRadius: 40 }}
-          className="relative flex flex-auto overflow-hidden bg-white pt-7"
+          className="relative flex flex-auto overflow-hidden bg-[#f8f8f4] pt-7"
         >
           <motion.div
             layout
