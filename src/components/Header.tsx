@@ -28,13 +28,13 @@ function Header({
           <Image
             alt="logo"
             loading="eager"
-            width="90"
-            height="90"
+            width="40"
+            height="40"
             decoding="async"
-            src="/logo-white.png"
+            src="/logo.png"
           />
         </Link>
-        <div className="flex items-center gap-x-8">
+        <div className="flex items-center gap-x-3 md:gap-x-8">
           <Button href="/contact" className={cn(expanded && "bg-white text-foreground")}>Work With Us</Button>
           <button
             className={cn(
