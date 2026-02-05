@@ -1,0 +1,37 @@
+{
+  "name": "bityeti",
+  "author": {
+    "name": "BitYeti",
+    "email": "sandipgyawali100@gmail.com",
+    "url": "https://github.com/SandipGyawali"
+  },
+  "module": "index.ts",
+  "devDependencies": {
+    
+    "turbo": "^2.5.6"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "maintainers": [
+    {
+      "name": "Sandip Gyawali",
+      "email": "sandipgyawali100@gmail.com",
+      "url": "http://sandip-dev.vercel.app/"
+    }
+  ],
+  "private": true,
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build --cache-dir=.turbo"
+  },
+  "type": "module",
+  "packageManager": "bun@1.2.21",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "dependencies": {
+   
+  }
+}
