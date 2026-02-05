@@ -32,8 +32,11 @@ export default function Teams() {
         <section className="my-5 md:py-20">
             <div className="mx-auto px-6">
                 <div className="grid grid-cols-1 gap-15 lg:grid-cols-7 lg:gap-12">
-                  <p className="col-span-3 font-medium">Our Teams</p>
-              
+                  <div className="col-span-3 font-medium">
+                    <div className='border border-foreground/20 bg-white w-fit px-2 py-0.5'>
+                      <p>Our Teams</p>
+                    </div>
+                  </div>
                   <div className="col-span-4 ml-auto space-y-10 lg:pl-15">
                     <h1 className="text-2xl font-medium tracking-tight">
                       A team of passionate creators, thinkers, and problem-solvers dedicated to crafting meaningful digital experiences.                     

@@ -57,7 +57,24 @@ export default function Services({ className }: { className?: string }) {
   return (
     <section className={cn("w-full", className)}>
       <Container>
-        <div className="flex w-full flex-col justify-between lg:flex-row lg:gap-20">
+        <div className="grid grid-cols-1 gap-15 lg:grid-cols-7 lg:gap-12">
+          <div className="col-span-3 font-medium">
+            <div className='border border-foreground/20 bg-white w-fit px-2 py-0.5'>
+              <p>Our Services</p>
+            </div>
+          </div>
+          <div className="col-span-4 ml-auto space-y-10 lg:pl-15">
+            <h1 className="text-2xl font-medium tracking-tight">
+              Designing, building, and scaling digital products that matter.
+            </h1>
+      
+            <p className="w-fit text-lg text-foreground/40 lg:translate-y-2">
+              From strategy to execution, we craft thoughtful digital solutions that balance aesthetics, performance, and purpose. Our services are built to help brands grow, connect, and stand out in a fast-moving digital world.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-16 flex w-full flex-col justify-between lg:flex-row lg:gap-20">
           {/* Left sticky column */}
           <div className="top-10 h-fit w-full space-y-7 py-8 lg:sticky lg:max-w-xs">
             <div className="relative h-90 overflow-hidden">
@@ -67,9 +84,8 @@ export default function Services({ className }: { className?: string }) {
                   src={activeService?.image}
                   alt={activeService?.title}
                   className="absolute inset-0 h-full w-full object-cover"
-                  initial={{ y: direction * 80 }}   // slide in a bit further
                   animate={{ y: 0 }}
-                  exit={{ y: -direction * 50 }}     // slide out a bit further
+                  exit={{ y: -direction }}     // slide out a bit further
                   transition={{
                     duration: 0.15,                 // faster than 0.2
                     ease: [0.25, 0.1, 0.25, 1],

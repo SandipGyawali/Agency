@@ -1,6 +1,8 @@
+"use client"
 import React from "react";
 import { Card, CardContent, CardFooter } from "@/components/ui/Card"; // adjust path as needed
 import Container from "./Container";
+import { motion } from "motion/react"
 
 const testimonials = [
   {
@@ -40,12 +42,22 @@ const testimonials = [
   },
 ];
 
+// duplicate for seamless loop
+const marqueeItems = [...testimonials, ...testimonials];
+
+
 const Testimonials = () => {
   return (
     <Container className="my-32">
       <section className="marquee-container space-y-16 md:space-y-18">
         <div className="grid grid-cols-1 gap-15 lg:grid-cols-7 lg:gap-12">
-          <p className="col-span-3 font-medium">Testimonials</p>
+          <div className="col-span-3 font-medium">
+            <div className="border border-foreground/20 px-2 py-0.5 w-fit bg-white">
+              <p>
+                Testimonials
+              </p>
+            </div>
+            </div>
 
           <div className="col-span-4 ml-auto space-y-10 lg:pl-15">
             <h1 className="text-2xl font-medium tracking-tight">
@@ -58,7 +70,16 @@ const Testimonials = () => {
             </p>
           </div>
         </div>
-        <div className="marquee-track flex gap-5 marquee">
+        <motion.div 
+          className="flex gap-5" 
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{
+            duration: 20,
+            ease: "linear",
+            repeat: Infinity
+          }}
+          whileHover={{ animationPlayState: "paused" }}
+        >
           {testimonials.map((testimonial, index) => (
             <Card
               key={`${testimonial.title}-${index}`}
@@ -82,7 +103,7 @@ const Testimonials = () => {
               </CardFooter>
             </Card>
           ))}
-        </div>
+        </motion.div>
       </section>
     </Container>
   );

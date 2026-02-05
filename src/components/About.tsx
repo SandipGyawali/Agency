@@ -6,7 +6,13 @@ const AboutUs = () => {
       <div className="bigger-container">
         {/* Mission */}
         <div className="grid grid-cols-1 gap-15 lg:grid-cols-7 lg:gap-12">
-          <p className="col-span-3 font-medium">About Us</p>
+          <div className="col-span-3 font-medium">
+              <div className="border border-foreground/20 w-fit bg-white px-2 py-0.5">
+                <p>
+                  About Us
+                </p>
+              </div>
+            </div>
 
           <div className="col-span-4 ml-auto space-y-10 lg:pl-15">
             <h1 className="text-2xl font-medium tracking-tight">

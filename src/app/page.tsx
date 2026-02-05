@@ -1,3 +1,4 @@
+import ContactUs from "@/components/Contact";
 import Hero from "@/components/Hero";
 import AnimatedLogoCloud from "@/components/LogoCloud";
 import Testimonials from "@/components/Testimonials";
@@ -9,6 +10,7 @@ function Home() {
         <Hero />
         <AnimatedLogoCloud />
         <Testimonials />
+        <ContactUs />
         {/* <Contact />
         <FAQ />
         <Gallery /> */}
