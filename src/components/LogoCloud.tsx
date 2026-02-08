@@ -1,41 +1,23 @@
 const logos = [
-  {
-    name: 'Vercel',
-    url: 'https://res.cloudinary.com/dfhp33ufc/image/upload/v1715881430/vercel_wordmark_dark_mhv8u8.svg',
-  },
-  {
-    name: 'Nextjs',
-    url: 'https://res.cloudinary.com/dfhp33ufc/image/upload/v1715881475/nextjs_logo_dark_gfkf8m.svg',
-  },
-  {
-    name: 'Prime',
-    url: 'https://res.cloudinary.com/dfhp33ufc/image/upload/v1715276558/logos/t2awrrfzdvmg1chnzyfr.svg',
-  },
-  {
-    name: 'Trustpilot',
-    url: 'https://res.cloudinary.com/dfhp33ufc/image/upload/v1715276558/logos/tkfspxqmjflfllbuqxsi.svg',
-  },
-  {
-    name: 'Webflow',
-    url: 'https://res.cloudinary.com/dfhp33ufc/image/upload/v1715276560/logos/nymiivu48d5lywhf9rpf.svg',
-  },
-
-  {
-    name: 'Airbnb',
-    url: 'https://res.cloudinary.com/dfhp33ufc/image/upload/v1715276558/logos/pmblusboe7vkw8vxdknx.svg',
-  },
-  {
-    name: 'Tina',
-    url: 'https://res.cloudinary.com/dfhp33ufc/image/upload/v1715276560/logos/afqhiygywyphuou6xtxc.svg',
-  },
-  {
-    name: 'Stackoverflow',
-    url: 'https://res.cloudinary.com/dfhp33ufc/image/upload/v1715276558/logos/ts1j4mkooxqmscgptafa.svg',
-  },
-  {
-    name: 'mistral',
-    url: 'https://res.cloudinary.com/dfhp33ufc/image/upload/v1715276558/logos/tyos2ayezryjskox3wzs.svg',
-  },
+  { name: 'Next.js', url: 'https://cdn.simpleicons.org/nextdotjs/white' },
+  { name: 'Vercel', url: 'https://cdn.simpleicons.org/vercel/white' },
+  { name: 'Node.js', url: 'https://cdn.simpleicons.org/nodedotjs/white' },
+  { name: 'Google Cloud', url: 'https://cdn.simpleicons.org/googlecloud/white' },
+  { name: 'React', url: 'https://cdn.simpleicons.org/react/white' },
+  { name: 'Bun', url: 'https://cdn.simpleicons.org/bun/white' },
+  { name: 'Python', url: 'https://cdn.simpleicons.org/python/white' },
+  { name: 'OpenAI', url: 'https://cdn.simpleicons.org/openai/white' },
+  { name: 'Claude', url: 'https://cdn.simpleicons.org/anthropic/white' },
+  { name: 'Django', url: 'https://cdn.simpleicons.org/django/white' },
+  { name: 'Javascript', url: 'https://cdn.simpleicons.org/javascript/white' },
+  { name: 'FastAPI', url: 'https://cdn.simpleicons.org/fastapi/white' },
+  { name: 'PostgreSQL', url: 'https://cdn.simpleicons.org/postgresql/white' },
+  { name: 'MongoDB', url: 'https://cdn.simpleicons.org/mongodb/white' },
+  { name: 'GitHub Actions', url: 'https://cdn.simpleicons.org/githubactions/white' },
+  { name: 'Git', url: 'https://cdn.simpleicons.org/git/white' },
+  { name: 'Nginx', url: 'https://cdn.simpleicons.org/nginx/white' },
+  { name: 'Typescript', url: 'https://cdn.simpleicons.org/typescript/white' },
+  { name: 'Linux', url: 'https://cdn.simpleicons.org/linux/white' },
 ]
 
 
@@ -50,7 +32,7 @@ const AnimatedLogoCloud = () => {
               "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)",
           }}
         >
-          <div className="flex w-max gap-26 animate-logo-cloud">
+          <div className="flex w-max gap-20 animate-logo-cloud">
             {[...logos, ...logos].map((logo, index) => (
               <img
                 key={index}

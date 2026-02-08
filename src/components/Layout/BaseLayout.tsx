@@ -68,7 +68,7 @@ function BaseLayout({ children }: BaseLayoutInterface) {
               </div>
 
               {/* Navigation */}
-              <Navigation />
+              <Navigation setExpanded={setExpanded} />
               <div className="relative bg-black before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-neutral-900">
                 <Container>
                   <div className="grid grid-cols-1 gap-y-10 pb-16 pt-10 sm:grid-cols-2 sm:pt-16">

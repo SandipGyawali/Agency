@@ -4,6 +4,7 @@ import Container from "@/components/Container";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import React from "react";
+import { motion, Variants } from "motion/react"
 
 // Step 1: Create a type for project (optional but helpful)
 type Project = {
@@ -50,65 +51,137 @@ const projects: Project[] = [
   },
 ];
 
-// Step 3: Create a reusable component
-const ProjectList: React.FC<{ projects: Project[], className?: string }> = ({ projects, className }) => {
+// animations.ts
+ const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
+
+const stagger: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const rowReveal: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const imageReveal: Variants = {
+  hidden: { scale: 1.15, opacity: 0 },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: { duration: 1, ease: "easeOut" },
+  },
+};
+
+
+const ProjectList: React.FC<{
+  projects: Project[];
+  className?: string;
+}> = ({ projects, className }) => {
   const router = useRouter();
 
   return (
     <>
-    <section className={cn("my-26", className)}>
-        <div className="grid grid-cols-1 gap-15 lg:grid-cols-7 lg:gap-12">
-          <div className="col-span-3 font-medium">
-              <div className="border border-foreground/20 w-fit bg-white px-2 py-0.5">
-                <p>
-                  Our Projects
-                </p>
-              </div>
+      <section className={cn("my-26 project-intro overflow-hidden", className)}>
+
+        {/* Intro */}
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 gap-15 lg:grid-cols-7 lg:gap-12"
+        >
+          <motion.div variants={fadeUp} className="col-span-3 font-medium">
+            <div className="border border-foreground/20 w-fit bg-white px-2 py-0.5">
+              <p>Our Projects</p>
             </div>
+          </motion.div>
 
           <div className="col-span-4 ml-auto space-y-10 lg:pl-15">
-            <h1 className="text-2xl font-medium tracking-tight">
-              From bold startups to global brands, we craft digital experiences that captivate and connect.
-              Each project is tailored to solve unique challenges, elevate brand presence, and drive meaningful results.
-            </h1>
+            <motion.h1
+              variants={fadeUp}
+              className="text-2xl font-medium tracking-tight"
+            >
+              From bold startups to global brands, we craft digital experiences
+              that captivate and connect.
+            </motion.h1>
 
-            <p className="w-fit text-lg text-foreground/40 lg:translate-y-2">
-              Our portfolio spans web design, mobile apps, immersive interfaces, and innovative campaigns.
-              We focus on blending creativity with strategy, ensuring every project is not only visually stunning but also impactful.
-            </p>
+            <motion.p
+              variants={fadeUp}
+              className="w-fit text-lg text-foreground/40 lg:translate-y-2"
+            >
+              Our portfolio spans web design, mobile apps, immersive interfaces,
+              and innovative campaigns.
+            </motion.p>
           </div>
-        </div>
+        </motion.div>
 
-      <ul className="relative w-full">
-        <li className="font-semibold hidden justify-between gap-10 border-b border-foreground/20 pt-15 pb-2 text-sm tracking-tight text-foreground/40 uppercase lg:flex lg:text-base">
-          <p className="w-1/4">PROJECTS</p>
-          <p className="w-2/4">DESCRIPTION</p>
-          <p className="w-1/4 text-right">GALLERY</p>
-        </li>
-  
-        {projects.map((project) => (
-          <li
-            key={project.id}
-            onClick={() => router.push(`/projects/${project.id}`)}
-            className="group cursor-pointer flex w-full flex-col justify-between gap-10 border-b border-foreground/20 py-10 lg:flex-row lg:py-15"
-          >
-            <div className="flex gap-4 text-xl font-medium tracking-tighter uppercase lg:w-1/4">
-              <p className="text-foreground/20">{project.id}</p>
-              <div className="flex flex-col gap-1">
-                <p className="group-hover:underline">{project.title}</p>
-                <p className="text-muted-foreground">({project.date})</p>
-              </div>
-            </div>
-            <div className="text-2xl lg:w-2/4 lg:text-2xl">{project.description}</div>
-            <div className="w-full text-right text-sm text-foreground/50 uppercase lg:w-1/4 lg:pl-20 lg:text-base overflow-hidden">
-              <img decoding="async" loading="lazy" alt={project.title} className="transform transition-transform duration-500 ease-in-out h-full w-full object-cover hover:scale-110" src={project.image} />
-            </div>
+        {/* List */}
+        <motion.ul
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="relative w-full"
+        >
+          <li className="font-semibold hidden justify-between gap-10 border-b border-foreground/20 pt-15 pb-2 text-sm tracking-tight text-foreground/40 uppercase lg:flex lg:text-base">
+            <p className="w-1/4">Projects</p>
+            <p className="w-2/4">Description</p>
+            <p className="w-1/4 text-right">Gallery</p>
           </li>
-        ))}
-      </ul>
-    </section>
-        
-     <ContactUs />
+
+          {projects.map((project) => (
+            <motion.li
+              key={project.id}
+              variants={rowReveal}
+              onClick={() => router.push(`/projects/${project.id}`)}
+              className="project-row group cursor-pointer flex w-full flex-col justify-between gap-10 border-b border-foreground/20 py-10 lg:flex-row lg:py-15"
+            >
+              <div className="flex gap-4 text-xl font-medium tracking-tighter uppercase lg:w-1/4">
+                <p className="text-foreground/20">{project.id}</p>
+                <div className="flex flex-col gap-1">
+                  <p className="group-hover:underline">{project.title}</p>
+                  <p className="text-muted-foreground">
+                    ({project.date})
+                  </p>
+                </div>
+              </div>
+
+              <div className="text-2xl lg:w-2/4">
+                {project.description}
+              </div>
+
+              <motion.div
+                variants={imageReveal}
+                className="w-full overflow-hidden text-right text-sm uppercase lg:w-1/4 lg:pl-20"
+              >
+                <img
+                  alt={project.title}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                  src={project.image}
+                />
+              </motion.div>
+            </motion.li>
+          ))}
+        </motion.ul>
+      </section>
+
+      <ContactUs />
     </>
   );
 };

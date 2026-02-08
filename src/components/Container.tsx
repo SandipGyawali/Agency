@@ -15,7 +15,7 @@ function Container<T extends ElementType = "div">({
   const Component = as || "div";
 
   return (
-    <Component className={cn("section-padding mx-5 md:mx-6", className)}>
+    <Component className={cn("section-padding mx-3 sm:mx-5 md:mx-6", className)}>
       <div className="max-w-none mx-auto">{children}</div>
     </Component>
   );

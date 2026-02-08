@@ -124,7 +124,7 @@ export default function FAQ({ wantTitle = true, isGrouped = true }: { wantTitle?
       }
 
       {isGrouped && faqData.map((group, idx) => (
-        <div key={idx} className="mb-10 bg-white p-5">
+        <div key={idx} className="mb-10 bg-white p-5 border border-foreground/10">
           <h3 className="mb-6 text-lg font-bold uppercase tracking-widest text-neutral-500">
             {group.group}
           </h3>
@@ -137,16 +137,19 @@ export default function FAQ({ wantTitle = true, isGrouped = true }: { wantTitle?
         </div>
       ))}
 
-      {!isGrouped && faqData.map((group, idx) => (
-          <div key={idx} className="bg-white px-5">
-            <div className="divide-y divide-dashed divide-neutral-300">
-              {group.items.filter((val => val.h === true)).map((item, i) => (
-                <FAQItem key={i} q={item.q} a={item.a} />
-              ))}
+      <div className="border border-foreground/10">
+        {!isGrouped && faqData.map((group, idx) => (
+            <div key={idx} className="bg-white px-5">
+              <div className="divide-y divide-dashed divide-neutral-300">
+                {group.items.filter((val => val.h === true)).map((item, i) => (
+                  <FAQItem key={i} q={item.q} a={item.a} />
+                ))}
+              </div>
             </div>
-          </div>
-        ))
-      }
+          ))
+        }
+      </div>
+
     </section>
   );
 }

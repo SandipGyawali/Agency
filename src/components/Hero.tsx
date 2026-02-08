@@ -1,6 +1,6 @@
 "use client"
 import { motion, Variants } from "motion/react";
-import RippleGrid from "./Doodles/RippleGrid";
+import Noise from "./Doodles/Noise";
 
 const container = {
   hidden: {},
@@ -45,22 +45,19 @@ const Hero = () => {
       {/* Moving text band */}
       
       <motion.div
-        className="absolute top-[20%] z-0 left-0 w-full uppercase whitespace-nowrap"
+        className="absolute top-0 z-0 left-0 w-full uppercase whitespace-nowrap"
         transition={{
           duration: 30,
           repeat: Infinity,
         }}
       >
-        <div style={{ width: '100%', height: '600px', position: 'relative' }}>
-          <RippleGrid
-            enableRainbow={false}
-            gridColor="#f8f8f4"
-            rippleIntensity={0.05}
-            gridSize={10}
-            gridThickness={15}
-            mouseInteraction={true}
-            mouseInteractionRadius={1.2}
-            opacity={0.8}
+        <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+          <Noise
+            patternSize={250}
+            patternScaleX={2}
+            patternScaleY={2}
+            patternRefreshInterval={2}
+            patternAlpha={15}
           />
         </div>
       </motion.div>
