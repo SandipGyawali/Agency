@@ -26,10 +26,10 @@ function BaseLayout({ children }: BaseLayoutInterface) {
 
   return (
     <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
-      <ReactLenis
+      {/* <ReactLenis
         root
         options={{ lerp: 0.1, duration: 1, smoothWheel: true }}
-      >
+      > */}
         <header>
           <div className="absolute left-0 right-0 top-2 z-99 pt-2">
             <Header
@@ -107,7 +107,7 @@ function BaseLayout({ children }: BaseLayoutInterface) {
             <Footer />
           </motion.div>
         </motion.div>
-      </ReactLenis>
+      {/* </ReactLenis> */}
     </MotionConfig>
   );
 }
