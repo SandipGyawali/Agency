@@ -22,7 +22,7 @@ function Button({
     "inline-flex px-4 py-1.5 text-sm font-semibold transition",
     invert
       ? "bg-white text-neutral-950 hover:bg-neutral-200"
-      : "bg-neutral-950 text-white hover:bg-neutral-800",
+      : "bg-neutral-950 text-background hover:bg-neutral-800",
     className
   );
 

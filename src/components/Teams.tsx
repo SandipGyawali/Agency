@@ -7,7 +7,7 @@ const members = [
     name: "Bhuwan Bhandari",
     role: "Co-Founder & CEO",
     avatar: "/bhuwan.jpeg",
-    email: "bluwan@gmail.com",
+    email: "bhuwan28@colby.edu",
     link: "#",
   },
   {
@@ -15,6 +15,13 @@ const members = [
     role: "Co-Founder & CTO",
     avatar: "/sandip.jpeg",
     email: "sandipgyawali100@gmail.com",
+    link: "#",
+  },
+   {
+    name: "Rhys Ferer",
+    role: "Co-Founder & CMO",
+    avatar: "/rhys.jpeg",
+    email: "rhys@gmail.com",
     link: "#",
   },
 ];

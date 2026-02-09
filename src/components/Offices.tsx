@@ -35,10 +35,8 @@ const Offices = ({
   return (
     <ul role="list" {...props}>
       <li>
-        <Office name="Nepal" invert={invert}>
-          Tokha, Ward-11
-          <br />
-          Kathmandu, Nepal
+        <Office name="United States" invert={invert}>
+          Boston · Massachusetts
         </Office>
       </li>
     </ul>

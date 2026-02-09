@@ -11,10 +11,10 @@ function Home() {
       <div className="space-y-8">
         <Hero />
         <AnimatedLogoCloud />
-        <Testimonials />
         <Features />
-        <ContactUs />
+        <Testimonials />
         <FAQ wantTitle={true} isGrouped={false}/>
+        <ContactUs />
       </div>
     </main>
   );

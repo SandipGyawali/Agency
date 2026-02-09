@@ -1,6 +1,7 @@
 "use client"
 import { motion, Variants } from "motion/react";
 import Noise from "./Doodles/Noise";
+import Image from "next/image";
 
 const container = {
   hidden: {},
@@ -38,12 +39,10 @@ const fadeUp: Variants = {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[100dvh] w-full bg-black text-white overflow-hidden">
+    <section className="relative w-full bg-black text-white overflow-hidden">
       {/* Grain */}
       <div className="pointer-events-none absolute inset-0 bg-[url('/noise.png')] opacity-[0.06]" />
 
-      {/* Moving text band */}
-      
       <motion.div
         className="absolute top-0 z-0 left-0 w-full uppercase whitespace-nowrap"
         transition={{
@@ -52,17 +51,21 @@ const Hero = () => {
         }}
       >
         <div style={{ width: '100%', height: '100%', position: 'relative' }}>
-          <Noise
-            patternSize={250}
-            patternScaleX={2}
-            patternScaleY={2}
-            patternRefreshInterval={2}
-            patternAlpha={15}
+          <Image 
+            src="/hero.jpg" 
+            alt="image" 
+            className="w-full h-full object-cover object-center opacity-70"
+            // fill 
+            width={3000}
+            height={3000}
+            priority 
+            decoding="async" 
+            loading="eager" 
           />
         </div>
       </motion.div>
 
-      <div className="relative mx-auto flex min-h-screen flex-col justify-between px-5 md:px-6 py-6">
+      <div className="relative mx-auto flex min-h-[80dvh] lg:min-h-screen flex-col justify-between px-5 md:px-6 py-6">
         {/* TOP BAR */}
         <motion.div
           className="grid grid-cols-1 gap-8 lg:grid-cols-3"

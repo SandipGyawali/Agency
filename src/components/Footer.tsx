@@ -1,5 +1,6 @@
 import React from "react";
 import PixelBlast from "./Doodles/PixelBlast";
+import Image from "next/image";
 
 const Footer = () => {
   const [time, setTime] = React.useState("");
@@ -27,7 +28,18 @@ const Footer = () => {
       <footer className="relative m-5 mt-0! overflow-hidden py-8 md:m-6 bg-foreground text-background dark:bg-background dark:text-foreground dark:invert">
         {/* Background Canvas */}
         <div className="absolute inset-0 h-full w-full object-cover">
-          <PixelBlast />
+          {/* <PixelBlast /> */}
+            <Image
+              src="/mountain-footer.jpg" 
+              alt="image" 
+              className="w-full h-full object-cover object-center grayscale-50 opacity-70"
+              // fill 
+              width={3000}
+              height={3000}
+              priority 
+              decoding="async" 
+              loading="eager" 
+            />
         </div>
         
 

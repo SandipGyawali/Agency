@@ -5,6 +5,7 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Mail, MapPin, Clock, Twitter, Linkedin, Github, Facebook } from "lucide-react";
+import Image from "next/image";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -147,10 +148,10 @@ function ContactFooter() {
       <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
         <div className="space-y-4 text-sm font-medium text-neutral-600">
           <div className="flex items-center gap-3">
-            <Mail size={16} /> hello@bityeti.com
+            <Mail size={16} /> hello@submitline.com
           </div>
           <div className="flex items-center gap-3">
-            <MapPin size={16} /> Remote · Worldwide
+            <MapPin size={16} /> Boston · Massachusetts, USA
           </div>
           <div className="flex items-center gap-3">
             <Clock size={16} /> Typically replies within 24 hours
@@ -220,13 +221,18 @@ export default function ContactUs() {
         {/* RIGHT MAP */}
         <motion.div
           variants={fadeUp}
-          className="relative w-full bg-white p-5 lg:w-1/2"
+          className="relative w-full h-full bg-white p-5 lg:w-1/2"
         >
-          <iframe 
-          className="h-full w-full grayscale" 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600392.841568507!2d81.47169246083271!3d28.207050258372465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1a266b342bc5%3A0x73bbfa829a89af1b!2sTribhuvan%20International%20Airport!5e0!3m2!1sen!2snp!4v1770566320600!5m2!1sen!2snp" 
-          loading="lazy" 
-        />
+          <Image 
+            src="/mountain-contact.jpg" 
+            width={2000} 
+            height={2000}
+            className="w-full h-full object-cover object-center grayscale-50" 
+            alt="mountain-contact" 
+            loading="eager" 
+            decoding="async" 
+            priority 
+          />
         </motion.div>
       </motion.div>
     </section>
