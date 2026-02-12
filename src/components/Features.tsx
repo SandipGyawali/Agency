@@ -31,6 +31,15 @@ const imageReveal: Variants = {
   },
 };
 
+
+const metrics = [
+  { label: "Revenue Growth", value: 82, color: "bg-emerald-500" },
+  { label: "User Retention", value: 68, color: "bg-blue-500" },
+  { label: "Conversion Rate", value: 54, color: "bg-purple-500" },
+  { label: "Performance", value: 91, color: "bg-amber-500" },
+];
+
+
 export default function Features() {
     return(
         <div className="mt-20 w-full border-b border-[rgba(55,50,47,0.12)] flex flex-col justify-center items-center">
@@ -54,19 +63,14 @@ export default function Features() {
               variants={fadeUp}
               className="text-2xl font-medium tracking-tight"
             >
-              We transform ideas into digital experiences that inspire and engage.
-              Every project is an opportunity to push boundaries, challenge
-              conventions, and create something extraordinary that leaves a
-              lasting impact.
+             We design, build, and scale modern digital infrastructure for ambitious teams.
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
               className="w-fit text-lg text-foreground/40 lg:translate-y-2"
             >
-              Our approach: Research deeply, design thoughtfully, and deliver
-              excellence. We believe in the power of collaboration, continuous
-              learning, and staying ahead of industry trends.
+              From SaaS platforms to cloud-native systems, we help startups and enterprises launch faster, scale confidently, and operate efficiently. Our expertise spans cloud architecture, DevOps automation, infrastructure engineering, and strategic technology consulting
             </motion.p>
           </div>
         </motion.div>
@@ -154,22 +158,109 @@ export default function Features() {
                         </p>
                       </div>
                       <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex overflow-hidden items-center justify-center relative">
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="grid gap-12 *:text-center md:grid-cols-3 md:gap-2">
-                            <div className="space-y-4">
-                                <div className="text-5xl font-bold">+1200</div>
-                                <p>Stars on GitHub</p>
-                            </div>
-                            <div className="space-y-4">
-                                <div className="text-5xl font-bold">22 Million</div>
-                                <p>Active Users</p>
-                            </div>
-                            <div className="space-y-4">
-                                <div className="text-5xl font-bold">+500</div>
-                                <p>Powered Apps</p>
-                            </div>
-                          </div>
-                        </div>
+                        {/* give me component here  */}
+                        <div
+      className={`flex items-center justify-center`}
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="relative w-full max-w-xl p-6 border border-neutral-200 overflow-hidden"
+      >
+        {/* Soft glow */}
+        <div className="absolute -top-10 -right-20 w-60 h-60 rounded-full" />
+
+        {/* KPI Section */}
+<div className="grid grid-cols-2 gap-6 mb-8 relative z-10">
+
+  <div>
+    <p className="text-xs text-neutral-500">
+      System Uptime
+    </p>
+    <h2 className="text-2xl font-semibold text">
+      90.00%
+    </h2>
+  </div>
+
+  <div>
+    <p className="text-xs text-neutral-500">
+      Deployment Speed
+    </p>
+    <h2 className="text-2xl font-semibold">
+      3× Faster
+    </h2>
+  </div>
+
+  <div>
+    <p className="text-xs  text-neutral-500">
+      Automation Coverage
+    </p>
+    <h2 className="text-2xl font-semibold">
+      85%
+    </h2>
+  </div>
+
+  <div>
+    <p className="text-xs text-neutral-500">
+      Infrastructure Scalability
+    </p>
+    <h2 className="text-2xl font-semibold">
+      Unlimited
+    </h2>
+  </div>
+
+</div>
+
+        {/* Animated Line Chart */}
+        <div className="relative z-10">
+          <svg
+            viewBox="0 0 400 120"
+            className="w-full h-28"
+            fill="none"
+          >
+            {/* Gradient */}
+            <defs>
+              <linearGradient
+                id="lineGradient"
+                x1="0"
+                y1="0"
+                x2="0"
+                y2="1"
+              >
+                <stop offset="0%" stopColor="#10B981" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#10B981" stopOpacity="0.05" />
+              </linearGradient>
+            </defs>
+
+            {/* Area */}
+            <motion.path
+              d="M0 90 C 50 60, 100 70, 150 50 C 200 30, 250 40, 300 20 C 350 10, 380 30, 400 25 L400 120 L0 120 Z"
+              fill="url(#lineGradient)"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+            />
+
+            {/* Line */}
+            <motion.path
+              d="M0 90 C 50 60, 100 70, 150 50 C 200 30, 250 40, 300 20 C 350 10, 380 30, 400 25"
+              stroke="#10B981"
+              strokeWidth="3"
+              strokeLinecap="round"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              whileInView={{ pathLength: 1 }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+              viewport={{ once: true }}
+            />
+          </svg>
+        </div>
+      </motion.div>
+    </div>
+
                         {/* Fallback content if component doesn't render */}
                         <div className="absolute inset-0 flex items-center justify-center opacity-20 hidden">
                           <div className="flex flex-col items-center gap-2 p-4">

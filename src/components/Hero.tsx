@@ -1,9 +1,9 @@
-"use client"
+"use client";
+
 import { motion, Variants } from "motion/react";
-import Noise from "./Doodles/Noise";
 import Image from "next/image";
 
-const container = {
+const container: Variants = {
   hidden: {},
   show: {
     transition: {
@@ -23,7 +23,7 @@ const word: Variants = {
     opacity: 1,
     transition: {
       duration: 0.8,
-      ease: [0.22, 1, 0.36, 1], // nice cinematic ease
+      ease: [0.22, 1, 0.36, 1],
     },
   },
 };
@@ -39,33 +39,25 @@ const fadeUp: Variants = {
 
 const Hero = () => {
   return (
-    <section className="relative w-full bg-black text-white overflow-hidden">
-      {/* Grain */}
+    <section className="relative w-full text-white overflow-hidden">
+
+      {/* Background Image */}
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/mountain.jpg"
+          alt="Background"
+          fill
+          priority
+          className="object-cover object-center opacity-80 grayscale-50"
+        />
+      </div>
+
+      {/* Grain Overlay */}
       <div className="pointer-events-none absolute inset-0 bg-[url('/noise.png')] opacity-[0.06]" />
 
-      <motion.div
-        className="absolute top-0 z-0 left-0 w-full uppercase whitespace-nowrap"
-        transition={{
-          duration: 30,
-          repeat: Infinity,
-        }}
-      >
-        <div style={{ width: '100%', height: '100%', position: 'relative' }}>
-          <Image 
-            src="/hero.jpg" 
-            alt="image" 
-            className="w-full h-full object-cover object-center opacity-70"
-            // fill 
-            width={3000}
-            height={3000}
-            priority 
-            decoding="async" 
-            loading="eager" 
-          />
-        </div>
-      </motion.div>
-
+      {/* Content */}
       <div className="relative mx-auto flex min-h-[80dvh] lg:min-h-screen flex-col justify-between px-5 md:px-6 py-6">
+
         {/* TOP BAR */}
         <motion.div
           className="grid grid-cols-1 gap-8 lg:grid-cols-3"
@@ -90,21 +82,19 @@ const Hero = () => {
           </motion.div>
 
           <motion.div variants={fadeUp} className="space-y-3 text-sm">
-            <p className="font-bold uppercase">
-              Services We Offer
-            </p>
-
+            <p className="font-bold uppercase">Services We Offer</p>
             <ul className="flex flex-col items-start justify-end space-y-1 text-muted-foreground font-semibold">
-              <li className="flex gap-1 items-center">Custom Software Development</li>
-              <li className="flex gap-1 items-center">Technical Consulting & Architecture</li>
-              <li className="flex gap-1 items-center">Cloud, DevOps & Infrastructure</li>
-              <li className="flex gap-1 items-center">Performance, Security & Reliability</li>
+              <li>Custom Software Development</li>
+              <li>Technical Consulting & Architecture</li>
+              <li>Cloud, DevOps & Infrastructure</li>
+              <li>Performance, Security & Reliability</li>
             </ul>
           </motion.div>
         </motion.div>
 
         {/* BOTTOM CONTENT */}
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-end">
+
           {/* Animated Headline */}
           <motion.h1
             className="max-w-3xl font-mono font-semibold text-4xl leading-tight tracking-tight lg:text-7xl"
@@ -112,13 +102,10 @@ const Hero = () => {
             initial="hidden"
             animate="show"
           >
-            {["WE BUILD", "RELIABLE SOFTWARE", "SYSTEMS THAT SCALE."].map(
+            {["WE BUILD", "RELIABLE SOFTWARE", "SYSTEMS THAT SCALE TO THE HORIZON."].map(
               (line, i) => (
                 <div key={i} className="overflow-hidden">
-                  <motion.span
-                    className="block"
-                    variants={word}
-                  >
+                  <motion.span className="block" variants={word}>
                     {line}
                   </motion.span>
                 </div>
@@ -144,15 +131,13 @@ const Hero = () => {
               Schedule a consultation
             </motion.button>
 
-            <motion.div
-              variants={fadeUp}
-              className="flex gap-4 text-xs text-white/40"
-            >
+            <motion.div variants={fadeUp} className="flex gap-4 text-xs text-white/40">
               <span>Client Satisfaction</span>
               <span>Cloud-Native</span>
               <span>Production-First</span>
             </motion.div>
           </motion.div>
+
         </div>
       </div>
     </section>

@@ -6,7 +6,6 @@ const logos = [
   { name: 'React', url: 'https://cdn.simpleicons.org/react/white' },
   { name: 'Bun', url: 'https://cdn.simpleicons.org/bun/white' },
   { name: 'Python', url: 'https://cdn.simpleicons.org/python/white' },
-  { name: 'OpenAI', url: 'https://cdn.simpleicons.org/openai/white' },
   { name: 'Claude', url: 'https://cdn.simpleicons.org/anthropic/white' },
   { name: 'Django', url: 'https://cdn.simpleicons.org/django/white' },
   { name: 'Javascript', url: 'https://cdn.simpleicons.org/javascript/white' },
@@ -18,6 +17,7 @@ const logos = [
   { name: 'Nginx', url: 'https://cdn.simpleicons.org/nginx/white' },
   { name: 'Typescript', url: 'https://cdn.simpleicons.org/typescript/white' },
   { name: 'Linux', url: 'https://cdn.simpleicons.org/linux/white' },
+  { name: 'Terraform', url: 'https://cdn.simpleicons.org/terraform/white' },
 ]
 
 

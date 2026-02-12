@@ -3,6 +3,7 @@ import FAQ from "@/components/Faq";
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
 import AnimatedLogoCloud from "@/components/LogoCloud";
+import { QuickServicesSection } from "@/components/QuickService";
 import Testimonials from "@/components/Testimonials";
 
 function Home() {
@@ -12,6 +13,7 @@ function Home() {
         <Hero />
         <AnimatedLogoCloud />
         <Features />
+        <QuickServicesSection />
         <Testimonials />
         <FAQ wantTitle={true} isGrouped={false}/>
         <ContactUs />

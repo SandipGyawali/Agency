@@ -306,7 +306,7 @@ const EffortlessIntegration: React.FC<EffortlessIntegrationProps> = ({ width = 4
           }}
         >
           <img
-            src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/framer.svg"
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/google.svg"
             alt="Framer"
             style={{
               width: "16px",

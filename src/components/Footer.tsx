@@ -32,7 +32,7 @@ const Footer = () => {
             <Image
               src="/mountain-footer.jpg" 
               alt="image" 
-              className="w-full h-full object-cover object-center grayscale-50 opacity-70"
+              className="w-full h-full object-cover object-center grayscale-75 opacity-70"
               // fill 
               width={3000}
               height={3000}
