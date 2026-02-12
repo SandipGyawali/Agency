@@ -11,7 +11,7 @@ import {
   PanelsTopLeft,
 } from "lucide-react";
 
-export const ServiceDetailSection = () => {
+export default function ServiceDetailSection() {
   return (
     <section className="py-16 w-full bg-background text-foreground">
       <div className="container mx-auto max-w-4xl">
@@ -189,5 +189,3 @@ const RelatedCard = ({
 );
 
 
-
-export default ServiceDetailSection
