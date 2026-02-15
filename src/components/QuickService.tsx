@@ -1,5 +1,4 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
 import Container from "./Container";
 
 const services = [
@@ -60,18 +59,27 @@ const services = [
       "Strategic Planning",
       "Organizational Design",
       "Change Management",
-      "Market & Competitor Analysis"
-    ]
+      "Market & Competitor Analysis",
+    ],
+  },
+  {
+    id: "06",
+    title: "Dedicated Development Teams",
+    description:
+      "Scale your business with a dedicated team of experienced engineers, designers, and DevOps specialists who work as an extension of your organization.",
+    capabilities: [
+      "Full-Time Dedicated Engineers",
+      "Agile Project Management",
+      "Flexible Engagement Models",
+      "Long-Term Technical Partnership",
+    ],
   }
 ];
 
 export const QuickServicesSection = () => {
   return (
-    <Container>
-      <div className="mx-auto mt-32">
-        
-        {/* Mission */}
-        <div
+    <Container className="py-28">
+      <div
           className="grid grid-cols-1 gap-15 lg:grid-cols-7 lg:gap-12"
         >
           <div className="col-span-3 font-medium">
@@ -99,63 +107,45 @@ export const QuickServicesSection = () => {
           </div>
         </div>
 
-
-        {/* Services */}
-        <div className="mt-10 w-full bg-white py-20 border border-muted-foreground/20">
-          <div className="grid gap-16">
+        <div className="mt-12 space-y-16">
+          <div className="grid grid-cols-1 gap-3 md:gap-4 lg:gap-8 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
               <div
                 key={service.id}
-                className="relative grid grid-cols-1 gap-6 md:grid-cols-7"
+                className="bg-white border border-foreground/10 space-y-6 p-8"
               >
-                {/* Number */}
-                <div className="flex items-start justify-center md:col-span-1">
-                  <div className="bg-primary text-primary-foreground flex h-14 w-14 items-center justify-center rounded-full text-2xl font-bold">
-                    {service.id}
+                <div className="flex items-start gap-4">
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold">
+                      {service.id}. {service.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-muted-foreground">
+                      {service.description}
+                    </p>
                   </div>
                 </div>
 
-                {/* Content */}
-                <div className="space-y-4 md:col-span-6">
-                  <h3 className="text-2xl font-semibold">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {service.description}
-                  </p>
+                {/* Static "What's Included" section preserved */}
+                <div className="space-y-3">
+                  <h4 className="text-sm font-semibold tracking-wide text-muted-foreground uppercase">
+                    What's Included
+                  </h4>
 
-                  {/* Capabilities */}
-                  <div className="mt-4">
-                    <h4 className="text-muted-foreground mb-3 text-sm font-medium">
-                      Capabilities:
-                    </h4>
-                    <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-                      {service.capabilities.map((item, index) => (
-                        <li
-                          key={index}
-                          className="flex items-center gap-2 text-sm"
-                        >
-                          <span className="text-primary text-lg">•</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+                    {
+                      service.capabilities.map(cap => (
+                        <div key={cap} className="flex items-center gap-2">
+                          <div className="h-1 w-1 rounded-full bg-foreground"></div>
+                          <span className="text-sm font-medium text-muted-foreground">{cap}</span>
+                        </div>
+                      ))
+                    }
                   </div>
-
-                  {/* CTA */}
-                  <a
-                    href="#contact"
-                    className="group text-primary flex items-center text-sm font-medium hover:underline"
-                  >
-                    <span className="mr-2">Learn more</span>
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                  </a>
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </div>
     </Container>
   );
 };
