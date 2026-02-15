@@ -186,7 +186,7 @@ export default function ContactUs() {
   return (
     <section className="my-20 min-h-screen px-6">
       <motion.div
-        variants={stagger}
+        variants={fadeUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -198,11 +198,9 @@ export default function ContactUs() {
           className="flex w-full flex-col justify-between bg-white p-10 lg:w-1/2 lg:p-14"
         >
           <div>
-            <div className="mb-8 inline-block bg-neutral-200 px-4 py-2 font-extrabold tracking-widest">
-              BitYeti
-            </div>
+            <Image src="/logo-white.png" width={50} height={50} alt="logo" />
 
-            <h1 className="mb-6 text-3xl font-extrabold leading-tight lg:text-4xl">
+            <h1 className="mt-2 mb-6 text-3xl font-extrabold leading-tight lg:text-4xl">
               LET’S CREATE SOMETHING
               <br /> AMAZING TOGETHER!
             </h1>

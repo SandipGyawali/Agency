@@ -31,7 +31,7 @@ function Header({
             width="45"
             height="45"
             decoding="async"
-            src="/logo.png"
+            src={expanded ? "/logo-dark.png" : "/logo-white.png"}
           />
         </Link>
         <div className="flex items-center gap-x-3 md:gap-x-8">
