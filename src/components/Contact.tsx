@@ -225,7 +225,7 @@ export default function ContactUs() {
             src="/mountain-contact.jpg" 
             width={2000} 
             height={2000}
-            className="w-full h-full object-cover object-center grayscale-50" 
+            className="w-full h-full object-cover object-center hover:scale-110 transition-transform duration-700 ease-out grayscale-50" 
             alt="mountain-contact" 
             loading="eager" 
             decoding="async" 

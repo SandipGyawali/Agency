@@ -1,3 +1,7 @@
+"use client"
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
+
 const logos = [
   { name: 'Next.js', url: 'https://cdn.simpleicons.org/nextdotjs/white' },
   { name: 'Vercel', url: 'https://cdn.simpleicons.org/vercel/white' },
@@ -22,8 +26,23 @@ const logos = [
 
 
 const AnimatedLogoCloud = () => {
+
+  const ref = useRef(null)
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  })
+
+  const y = useTransform(scrollYProgress, [0, 1], [40, -40])
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 1], [0, 1, 0])
+
   return (
-    <div className="w-full py-20">
+    <motion.div 
+      ref={ref}
+      style={{ y, opacity }}
+      className="w-full py-20"
+    >
       <div className="mx-auto w-full px-4 md:px-8">
         <div
           className="relative mt-6 overflow-hidden"
@@ -32,7 +51,12 @@ const AnimatedLogoCloud = () => {
               "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)",
           }}
         >
-          <div className="flex w-max gap-20 animate-logo-cloud">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="flex w-max gap-20 animate-logo-cloud"
+          >
             {[...logos, ...logos].map((logo, index) => (
               <img
                 key={index}
@@ -41,10 +65,10 @@ const AnimatedLogoCloud = () => {
                 alt={logo.name}
               />
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
