@@ -9,21 +9,24 @@ const members = [
     role: "Co-Founder & CEO",
     avatar: "/bhuwan.jpeg",
     email: "bhuwan28@colby.edu",
-    link: "#",
+    linkedin: "",
+    whatsapp: "https://wa.me/+12076801385",
   },
   {
     name: "Sandip Gyawali",
     role: "Co-Founder & CTO",
     avatar: "/sandip.jpeg",
     email: "sandipgyawali100@gmail.com",
-    link: "#",
+    linkedin: "https://www.linkedin.com/in/sandip-gyawali-615681211/",
+    whatsapp: "https://wa.me/+9779846750293"
   },
    {
     name: "Rhys Ferer",
     role: "Co-Founder & CMO",
     avatar: "/rhys.jpeg",
     email: "rhys@gmail.com",
-    link: "#",
+    linkedin: "",
+    whatsapp: ""
   },
 ];
 
@@ -139,18 +142,29 @@ export default function Teams() {
                   </span>
 
                 <div className="flex items-center gap-2">
-                  <Link
-                    href={member.link}
-                    className="inline-block translate-y-8 text-sm tracking-wide opacity-0 transition-all duration-500 hover:underline group-hover:translate-y-0 group-hover:opacity-100"
-                  >
-                    <BsLinkedin className="text-blue-500" />
-                  </Link>
-                   <Link
-                    href={member.link}
-                    className="inline-block translate-y-8 text-sm tracking-wide opacity-0 transition-all duration-500 hover:underline group-hover:translate-y-0 group-hover:opacity-100"
-                  >
-                    <BsWhatsapp className="text-green-600" />
-                  </Link>
+                  {
+                    member.linkedin && (
+                      <Link
+                        target="_blank"
+                        href={member.linkedin}
+                        className="inline-block translate-y-8 text-sm tracking-wide opacity-0 transition-all duration-500 hover:underline group-hover:translate-y-0 group-hover:opacity-100"
+                      >
+                        <BsLinkedin className="text-blue-500" />
+                      </Link>
+                    )
+                  }
+                  {
+                    member.whatsapp && (
+                      <Link
+                        target="_blank"
+                        href={member.whatsapp}
+                        className="inline-block translate-y-8 text-sm tracking-wide opacity-0 transition-all duration-500 hover:underline group-hover:translate-y-0 group-hover:opacity-100"
+                      >
+                        <BsWhatsapp className="text-green-600" />
+                      </Link>
+                    )
+                  }
+                   
                 </div>
 
                 </div>

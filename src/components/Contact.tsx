@@ -76,7 +76,7 @@ function ContactForm() {
       whileInView="visible"
       viewport={{ once: true }}
       onSubmit={handleSubmit((data) => console.log(data))}
-      className="space-y-8"
+      className="space-y-6 lg:space-y-8"
     >
       <motion.div variants={fadeUp}>
         <Field error={errors.name?.message}>
@@ -128,7 +128,7 @@ function ContactForm() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.97 }}
         disabled={isSubmitting}
-        className="inline-flex items-center gap-2 bg-black px-6 py-3 font-semibold tracking-wide text-white transition hover:bg-neutral-800 disabled:opacity-50"
+        className="inline-flex items-center gap-2 bg-black px-4 lg:px-6 py-2 lg:py-3 font-semibold tracking-wide text-white transition hover:bg-neutral-800 disabled:opacity-50"
       >
         {isSubmitting ? "SENDING..." : "SEND MESSAGE"}
       </motion.button>
@@ -143,7 +143,7 @@ function ContactFooter() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="mt-20 border-t border-neutral-200 pt-10"
+      className="mt-10 xl:mt-20 border-t border-neutral-200 pt-10"
     >
       <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
         <div className="space-y-4 text-sm font-medium text-neutral-600">
@@ -184,23 +184,23 @@ function ContactFooter() {
 
 export default function ContactUs() {
   return (
-    <section className="my-20 min-h-screen">
+    <section className="my-20 h-full lg:h-screen px-4 lg:px-6">
       <motion.div
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="mx-auto flex h-screen w-full overflow-hidden border border-foreground/10 lg:flex-row flex-col"
+        className="mx-auto flex h-full w-full overflow-hidden lg:border lg:border-foreground/10 lg:flex-row flex-col"
       >
         {/* LEFT */}
         <motion.div
           variants={fadeUp}
-          className="flex w-full flex-col justify-between bg-white p-10 lg:w-1/2 lg:p-14"
+          className="border lg:border-none border-foreground/10 flex w-full flex-col justify-between bg-white p-7 md:p-10 lg:w-1/2 lg:p-14"
         >
           <div>
             <Image src="/logo-white.png" width={50} height={50} alt="logo" />
 
-            <h1 className="mt-2 mb-6 text-3xl font-extrabold leading-tight lg:text-4xl">
+            <h1 className="mt-2 mb-6 font-extrabold leading-tight text-4xl">
               LET’S CREATE SOMETHING
               <br /> AMAZING TOGETHER!
             </h1>
@@ -219,13 +219,13 @@ export default function ContactUs() {
         {/* RIGHT MAP */}
         <motion.div
           variants={fadeUp}
-          className="relative w-full h-full bg-white p-5 lg:w-1/2"
+          className="relative w-full h-full bg-white p-5 lg:w-1/2 max-lg:hidden "
         >
           <Image 
             src="/mountain-contact.jpg" 
             width={2000} 
             height={2000}
-            className="w-full h-full object-cover object-center hover:scale-110 transition-transform duration-700 ease-out grayscale-50" 
+            className="w-full h-full object-cover object-center grayscale-50" 
             alt="mountain-contact" 
             loading="eager" 
             decoding="async" 

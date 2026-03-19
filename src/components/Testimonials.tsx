@@ -42,10 +42,6 @@ const testimonials = [
   },
 ];
 
-// duplicate for seamless loop
-const marqueeItems = [...testimonials, ...testimonials];
-
-
 const Testimonials = () => {
   return (
     <Container className="my-32">
