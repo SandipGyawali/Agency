@@ -195,7 +195,7 @@ export default function ContactUs() {
         {/* LEFT */}
         <motion.div
           variants={fadeUp}
-          className="border lg:border-none border-foreground/10 flex w-full flex-col justify-between bg-white p-7 md:p-10 lg:w-1/2 lg:p-14"
+          className="border lg:border-none border-foreground/10 flex w-full flex-col justify-between bg-white p-10 lg:w-1/2"
         >
           <div>
             <Image src="/logo-white.png" width={50} height={50} alt="logo" />
