@@ -1,6 +1,6 @@
 "use client";
 import EffortlessIntegration from "./effortless-integration";
-import NumbersThatSpeak from "./number-that-speak";
+import ScoreBoard from "./ScoreBoard";
 import SmartSimpleBrilliant from "./smart-simple-brilliant";
 import YourWorkInSync from "./your-work-in-sync";
 import { motion, Variants } from "motion/react"
@@ -167,97 +167,97 @@ export default function Features() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="relative w-full max-w-xl p-6 border border-neutral-200 overflow-hidden"
+        className="relative w-full max-w-xl p-6 overflow-hidden"
       >
-        {/* Soft glow */}
-        <div className="absolute -top-10 -right-20 w-60 h-60 rounded-full" />
 
-        {/* KPI Section */}
-<div className="grid grid-cols-2 gap-6 mb-8 relative z-10">
-
-  <div>
-    <p className="text-xs text-neutral-500">
-      System Uptime
-    </p>
-    <h2 className="text-2xl font-semibold text">
-      90.00%
-    </h2>
-  </div>
-
-  <div>
-    <p className="text-xs text-neutral-500">
-      Deployment Speed
-    </p>
-    <h2 className="text-2xl font-semibold">
-      3× Faster
-    </h2>
-  </div>
-
-  <div>
-    <p className="text-xs  text-neutral-500">
-      Automation Coverage
-    </p>
-    <h2 className="text-2xl font-semibold">
-      85%
-    </h2>
-  </div>
-
-  <div>
-    <p className="text-xs text-neutral-500">
-      Infrastructure Scalability
-    </p>
-    <h2 className="text-2xl font-semibold">
-      Unlimited
-    </h2>
-  </div>
-
-</div>
-
-        {/* Animated Line Chart */}
-        <div className="relative z-10">
-          <svg
-            viewBox="0 0 400 120"
-            className="w-full h-28"
-            fill="none"
-          >
-            {/* Gradient */}
-            <defs>
-              <linearGradient
-                id="lineGradient"
-                x1="0"
-                y1="0"
-                x2="0"
-                y2="1"
-              >
-                <stop offset="0%" stopColor="#10B981" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="#10B981" stopOpacity="0.05" />
-              </linearGradient>
-            </defs>
-
-            {/* Area */}
-            <motion.path
-              d="M0 90 C 50 60, 100 70, 150 50 C 200 30, 250 40, 300 20 C 350 10, 380 30, 400 25 L400 120 L0 120 Z"
-              fill="url(#lineGradient)"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 1 }}
-              viewport={{ once: true }}
-            />
-
-            {/* Line */}
-            <motion.path
-              d="M0 90 C 50 60, 100 70, 150 50 C 200 30, 250 40, 300 20 C 350 10, 380 30, 400 25"
-              stroke="#10B981"
-              strokeWidth="3"
-              strokeLinecap="round"
-              fill="none"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              transition={{ duration: 1.5, ease: "easeOut" }}
-              viewport={{ once: true }}
-            />
-          </svg>
-        </div>
+       <ScoreBoard 
+         items={[
+          {
+            className: 'rounded-md bg-green-600',
+            label: 'A',
+            progress: 34
+          },
+          {
+            className: 'rounded-md bg-red-600',
+            label: 'B',
+            progress: 14
+          },
+          {
+            className: 'rounded-md bg-green-600',
+            label: 'C',
+            progress: 34
+          },
+          {
+            className: 'rounded-md bg-green-600',
+            label: 'D',
+            progress: 70
+          },
+          {
+            className: 'rounded-md bg-green-600',
+            label: 'E',
+            progress: 52
+          },
+          {
+            className: 'rounded-md bg-green-600',
+            label: 'F',
+            progress: 30
+          },
+          {
+            className: 'rounded-md bg-green-600',
+            label: 'G',
+            progress: 37
+          },
+          {
+            className: 'rounded-md bg-green-600',
+            label: 'H',
+            progress: 72
+          },
+          {
+            className: 'rounded-md bg-green-600',
+            label: 'I',
+            progress: 42
+          },
+           {
+            className: 'rounded-md bg-green-600',
+            label: 'J',
+            progress: 30
+          },
+          {
+            className: 'rounded-md bg-green-600',
+            label: 'K',
+            progress: 37
+          },
+          {
+            className: 'rounded-md bg-green-600',
+            label: 'L',
+            progress: 72
+          },
+          {
+            className: 'rounded-md bg-green-600',
+            label: 'M',
+            progress: 42
+          },
+           {
+            className: 'rounded-md bg-green-600',
+            label: 'N',
+            progress: 34
+          },
+          {
+            className: 'rounded-md bg-red-500',
+            label: 'O',
+            progress: 14
+          },
+          {
+            className: 'rounded-md bg-green-600',
+            label: 'P',
+            progress: 34
+          },
+          {
+            className: 'rounded-md bg-green-600',
+            label: 'Q',
+            progress: 70
+          },
+        ]}/>
       </motion.div>
     </div>
 

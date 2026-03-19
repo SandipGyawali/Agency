@@ -99,14 +99,14 @@ export default function Services({ className }: { className?: string }) {
           <div className="col-span-4 ml-auto space-y-10 lg:pl-15">
             <motion.h1
               variants={fadeUp}
-              className="text-2xl font-medium tracking-tight"
+              className="text-xl md:text-2xl font-medium tracking-tight"
             >
               Designing, building, and scaling digital products that matter.
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
-              className="w-fit text-lg text-foreground/40 lg:translate-y-2"
+              className="w-fit text-sm sm:text-base md:text-lg font-medium text-foreground/40 lg:translate-y-2"
             >
               From strategy to execution, we craft thoughtful digital solutions
               that balance aesthetics, performance, and purpose.
