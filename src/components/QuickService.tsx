@@ -1,12 +1,21 @@
 import React from "react";
 import Container from "./Container";
+import { 
+  Briefcase, 
+  Cloud, 
+  Code, 
+  Cpu, 
+  Server, 
+  Users 
+} from "lucide-react";
 
 const services = [
   {
     id: "01",
     title: "DevOps & Cloud Engineering",
+    icon: Cloud,
     description:
-      "We design, implement, and manage scalable cloud infrastructure with modern DevOps practices to ensure reliability, security, and high performance.",
+      "Scalable cloud infrastructure with CI/CD pipeline setup, cloud architecture (AWS, Azure, GCP), Infrastructure as Code (Terraform), and monitoring & observability.",
     capabilities: [
       "CI/CD Pipeline Setup",
       "Cloud Architecture (AWS, Azure, GCP)",
@@ -17,8 +26,9 @@ const services = [
   {
     id: "02",
     title: "SaaS Product Development",
+    icon: Server,
     description:
-      "From idea to launch, we build scalable SaaS platforms with multi-tenant architecture, subscription systems, and seamless user experiences.",
+      "End-to-end SaaS platforms with multi-tenant architecture, subscription & billing systems, API development, and scalable backend systems.",
     capabilities: [
       "Multi-tenant Architecture",
       "Subscription & Billing Systems",
@@ -29,8 +39,9 @@ const services = [
   {
     id: "03",
     title: "Custom Application Development",
+    icon: Code,
     description:
-      "We create robust web and mobile applications tailored to your business needs using modern frameworks and clean, maintainable code.",
+      "Custom web and mobile applications with modern UI/UX implementation, clean architecture, and seamless system integrations.",
     capabilities: [
       "Web Application Development",
       "Mobile App Development",
@@ -41,8 +52,9 @@ const services = [
   {
     id: "04",
     title: "AI & Intelligent Automation",
+    icon: Cpu,
     description:
-      "Leverage AI and automation to streamline operations, improve decision-making, and unlock new growth opportunities.",
+      "AI-powered solutions including AI model integration, process automation, chatbots & AI assistants, and data analytics & insights.",
     capabilities: [
       "AI Model Integration",
       "Process Automation",
@@ -53,8 +65,9 @@ const services = [
   {
     id: "05",
     title: "Business Strategy & Transformation",
+    icon: Briefcase,
     description:
-      "Help organizations define clear strategies, drive transformation initiatives, and achieve sustainable growth.",
+      "Strategic growth through strategic planning, organizational design, change management, and market & competitor analysis.",
     capabilities: [
       "Strategic Planning",
       "Organizational Design",
@@ -65,8 +78,9 @@ const services = [
   {
     id: "06",
     title: "Dedicated Development Teams",
+    icon: Users,
     description:
-      "Scale your business with a dedicated team of experienced engineers, designers, and DevOps specialists who work as an extension of your organization.",
+      "Dedicated engineers with agile project management, flexible engagement models, and long-term technical partnership.",
     capabilities: [
       "Full-Time Dedicated Engineers",
       "Agile Project Management",
@@ -78,7 +92,7 @@ const services = [
 
 export const QuickServicesSection = () => {
   return (
-    <Container className="py-28">
+    <Container className="pt-28 pb-20">
       <div
           className="grid grid-cols-1 gap-15 lg:grid-cols-7 lg:gap-12"
         >
@@ -109,41 +123,49 @@ export const QuickServicesSection = () => {
 
         <div className="mt-12 space-y-16">
           <div className="grid grid-cols-1 gap-3 md:gap-4 lg:gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
-              <div
-                key={service.id}
-                className="bg-white border border-foreground/10 space-y-6 p-8"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-semibold">
-                      {service.id}. {service.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-muted-foreground">
-                      {service.description}
-                    </p>
+            {services.map((service) => {
+              const Icon = service.icon;
+              
+              return (
+                <div
+                  key={service.id}
+                  className="bg-white border border-foreground/10 space-y-6 p-8"
+                >
+                  <div className="p-2 bg-[#f8f8f4] border w-fit border-foreground/10">
+                    <Icon className="w-5 h-5 text-foreground" />
+                  </div>
+  
+  
+                  <div className="flex items-start gap-4">
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-semibold">
+                        {service.id}. {service.title}
+                      </h3>
+                      <p className="text-sm leading-relaxed text-muted-foreground">
+                        {service.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <h4 className="text-sm font-semibold tracking-wide text-muted-foreground uppercase">
+                      What's Included
+                    </h4>
+
+                    <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+                      {
+                        service.capabilities.map(cap => (
+                          <div key={cap} className="flex items-center gap-2">
+                            <div className="h-1 w-1 rounded-full bg-muted-foreground"></div>
+                            <span className="text-xs font-medium text-muted-foreground">{cap}</span>
+                          </div>
+                        ))
+                      }
+                    </div>
                   </div>
                 </div>
-
-                {/* Static "What's Included" section preserved */}
-                <div className="space-y-3">
-                  <h4 className="text-sm font-semibold tracking-wide text-muted-foreground uppercase">
-                    What's Included
-                  </h4>
-
-                  <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
-                    {
-                      service.capabilities.map(cap => (
-                        <div key={cap} className="flex items-center gap-2">
-                          <div className="h-1 w-1 rounded-full bg-foreground"></div>
-                          <span className="text-sm font-medium text-muted-foreground">{cap}</span>
-                        </div>
-                      ))
-                    }
-                  </div>
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
     </Container>
