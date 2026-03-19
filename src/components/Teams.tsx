@@ -1,6 +1,7 @@
 "use client"
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
+import { BsLinkedin, BsWhatsapp } from "react-icons/bs";
 
 const members = [
   {
@@ -64,7 +65,7 @@ const imageReveal: Variants = {
 export default function Teams() {
   return (
     <section className="my-5 md:py-20 overflow-hidden">
-      <div className="mx-auto px-6">
+      <div className="mx-auto px-4">
 
         {/* Heading */}
         <motion.div
@@ -83,7 +84,7 @@ export default function Teams() {
           <div className="col-span-4 ml-auto space-y-10 lg:pl-15">
             <motion.h1
               variants={fadeUp}
-              className="text-2xl font-medium tracking-tight"
+              className="text-xl md:text-2xl font-medium tracking-tight"
             >
               A team of passionate creators, thinkers, and problem-solvers
               dedicated to crafting meaningful digital experiences.
@@ -91,7 +92,7 @@ export default function Teams() {
 
             <motion.p
               variants={fadeUp}
-              className="w-fit text-lg text-foreground/40 lg:translate-y-2"
+              className="font-medium w-fit text-sm sm:text-base md:text-lg text-foreground/40 lg:translate-y-2"
             >
               We combine creativity, collaboration, and technical expertise to
               turn ideas into solutions that inspire, engage, and leave a lasting
@@ -106,7 +107,7 @@ export default function Teams() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="mt-12 md:mt-24 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-12 md:mt-24 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
           {members.map((member, index) => (
             <motion.div
@@ -116,7 +117,7 @@ export default function Teams() {
             >
               <motion.img
                 variants={imageReveal}
-                className="w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
+                className="w-full lg:h-[600px] object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
                 src={member.avatar}
                 alt={member.name}
               />
@@ -142,13 +143,13 @@ export default function Teams() {
                     href={member.link}
                     className="inline-block translate-y-8 text-sm tracking-wide opacity-0 transition-all duration-500 hover:underline group-hover:translate-y-0 group-hover:opacity-100"
                   >
-                    Linkedin
+                    <BsLinkedin className="text-blue-500" />
                   </Link>
                    <Link
                     href={member.link}
                     className="inline-block translate-y-8 text-sm tracking-wide opacity-0 transition-all duration-500 hover:underline group-hover:translate-y-0 group-hover:opacity-100"
                   >
-                    WhatsApp
+                    <BsWhatsapp className="text-green-600" />
                   </Link>
                 </div>
 

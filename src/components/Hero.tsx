@@ -16,7 +16,7 @@ const Hero = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
           <h1 className="text-left font-playfair text-4xl tracking-tighter lg:text-5xl">
-            We Provide Tech Services
+            We Provide Tech Services{" "}
             <br className="hidden md:block" />
             Across The World.
           </h1>

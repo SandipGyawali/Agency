@@ -36,7 +36,7 @@ const Page = () => {
 
   return (
     <section className="pb-20 w-full">
-      <div className="container mx-auto px-6 py-16 lg:px-8">
+      <div className="container mx-auto px-4 py-16 lg:px-8">
         {/* Header */}
         <div className="mb-20">
           <div className="mb-16">

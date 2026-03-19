@@ -60,12 +60,12 @@ const Testimonials = () => {
             </div>
 
           <div className="col-span-4 ml-auto space-y-10 lg:pl-15">
-            <h1 className="text-2xl font-medium tracking-tight">
+            <h1 className="text-xl md:text-2xl font-medium tracking-tight">
               We turn ideas into digital experiences that engage and inspire. 
               Each project is a chance to innovate and create something memorable.
             </h1>
 
-            <p className="w-fit text-lg text-foreground/40 lg:translate-y-2">
+            <p className="w-fit text-sm sm:text-base  md:text-lg text-foreground/40 lg:translate-y-2">
               Our process: Research, design, and deliver with care. Collaboration and innovation guide everything we do.
             </p>
           </div>

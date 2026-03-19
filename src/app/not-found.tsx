@@ -8,7 +8,7 @@ export default function NotFound() {
       <div className="relative h-full min-h-[calc(100vh-8rem)]">
         {/* Corner texts */}
         <span className="absolute left-6 top-6 text-xs font-medium text-muted-foreground">
-          bityeti
+          Submit-Line
         </span>
 
         <span className="absolute right-6 top-6 text-lg font-semibold text-muted-foreground">
@@ -25,7 +25,6 @@ export default function NotFound() {
               <ArrowLeft size={"21"} />
               Back to Home
             </div>
-
           </Button>
         </div>
 

@@ -50,7 +50,7 @@ const AboutUs = () => {
           <div className="col-span-4 ml-auto space-y-10 lg:pl-15">
             <motion.h1
               variants={fadeUp}
-              className="text-2xl font-medium tracking-tight"
+              className="text-xl md:text-2xl font-medium tracking-tight"
             >
               We transform ideas into digital experiences that inspire and engage.
               Every project is an opportunity to push boundaries, challenge
@@ -60,7 +60,7 @@ const AboutUs = () => {
 
             <motion.p
               variants={fadeUp}
-              className="w-fit text-lg text-foreground/40 lg:translate-y-2"
+              className="w-fit font-medium text-sm sm:text-base md:text-lg text-foreground/40 lg:translate-y-2"
             >
               Our approach: Research deeply, design thoughtfully, and deliver
               excellence. We believe in the power of collaboration, continuous
@@ -107,7 +107,7 @@ const AboutUs = () => {
           <div className="col-span-4 ml-auto max-w-4xl space-y-10 lg:pl-15">
             <motion.h1
               variants={fadeUp}
-              className="text-2xl font-medium tracking-tight"
+              className="text-xl md:text-2xl font-medium tracking-tight"
             >
               We are a team of creators, thinkers, and builders who believe in
               crafting experiences that truly connect.
@@ -115,7 +115,7 @@ const AboutUs = () => {
 
             <motion.p
               variants={fadeUp}
-              className="w-fit text-lg text-foreground/40 lg:translate-y-2"
+              className="font-medium w-fit text-sm sm:text-base md:text-lg text-foreground/40 lg:translate-y-2"
             >
               We ask: What's the goal? Who's it for? How do we make it effortless?
               <br className="hidden lg:block" />

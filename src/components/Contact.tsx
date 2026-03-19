@@ -184,7 +184,7 @@ function ContactFooter() {
 
 export default function ContactUs() {
   return (
-    <section className="my-20 min-h-screen px-6">
+    <section className="my-20 min-h-screen">
       <motion.div
         variants={fadeUp}
         initial="hidden"

@@ -66,16 +66,16 @@ function FAQItem({ q, a }: { q: string, a: string }) {
   return (
     <div className="border-b border-dashed border-neutral-300 py-6">
       <div className="flex items-center justify-between">
-        <h3 className="font-semibold text-neutral-900">{q}</h3>
+        <h3 className="font-semibold text-xs sm:text-sm md:text-base text-neutral-900">{q}</h3>
         <button
           onClick={() => setOpen(!open)}
-          className={`rounded-lg border px-4 py-1 text-sm transition ${
+          className={`rounded-lg text-xs sm:text-sm border px-4 py-1 transition ${
             open
               ? "bg-neutral-900 text-white border-neutral-900"
               : "bg-white text-neutral-900 border-neutral-300"
           }`}
         >
-          {open ? "Hide" : "View more"}
+          {open ? "Hide" : "View"}
         </button>
       </div>
 
@@ -110,10 +110,10 @@ export default function FAQ({ wantTitle = true, isGrouped = true }: { wantTitle?
                 </div>
               </div>
             <div className="col-span-4 ml-auto space-y-10 lg:pl-15">
-              <h1 className="text-2xl font-medium tracking-tight">
+              <h1 className="text-xl md:text-2xl font-medium tracking-tight">
                 Everything You Need to Know About Our Process
               </h1>
-              <p className="w-fit text-lg text-foreground/40 lg:translate-y-2">
+              <p className="font-medium w-fit text-sm sm:text-base  md:text-lg text-foreground/40 lg:translate-y-2">
                 Find answers to the most common questions about submitting your work and navigating 
                 our review process. We’ve compiled clear explanations to help you understand each step, 
                 so you can submit with confidence and get timely feedback.

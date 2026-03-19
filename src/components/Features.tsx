@@ -61,14 +61,14 @@ export default function Features() {
           <div className="col-span-4 ml-auto space-y-10 lg:pl-15">
             <motion.h1
               variants={fadeUp}
-              className="text-2xl font-medium tracking-tight"
+              className="text-xl md:text-2xl font-medium tracking-tight"
             >
              We design, build, and scale modern digital infrastructure for ambitious teams.
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
-              className="w-fit text-lg text-foreground/40 lg:translate-y-2"
+              className="w-fit text-sm sm:text-base md:text-lg font-medium text-foreground/40 lg:translate-y-2"
             >
               From SaaS platforms to cloud-native systems, we help startups and enterprises launch faster, scale confidently, and operate efficiently. Our expertise spans cloud architecture, DevOps automation, infrastructure engineering, and strategic technology consulting
             </motion.p>

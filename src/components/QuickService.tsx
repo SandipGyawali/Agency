@@ -90,7 +90,7 @@ export const QuickServicesSection = () => {
 
           <div className="col-span-4 ml-auto space-y-10 lg:pl-15">
             <h1
-              className="text-2xl font-medium tracking-tight"
+              className="text-xl md:text-2xl font-medium tracking-tight"
             >
               Every project is an opportunity to push boundaries, challenge
               conventions, and create something extraordinary that leaves a
@@ -98,7 +98,7 @@ export const QuickServicesSection = () => {
             </h1>
 
             <p
-              className="w-fit text-lg text-foreground/40 lg:translate-y-2"
+              className="font-medium w-fit text-sm sm:text-base md:text-lg text-foreground/40 lg:translate-y-2"
             >
               Our approach: Research deeply, design thoughtfully, and deliver
               excellence. We believe in the power of collaboration, continuous
