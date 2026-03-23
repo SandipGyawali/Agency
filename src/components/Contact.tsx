@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Mail, MapPin, Clock, Twitter, Linkedin, Github, Facebook } from "lucide-react";
 import Image from "next/image";
+import { socials } from "@/data/socials";
+import { info } from "@/data/info";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -148,10 +150,10 @@ function ContactFooter() {
       <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
         <div className="space-y-4 text-sm font-medium text-neutral-600">
           <div className="flex items-center gap-3">
-            <Mail size={16} /> hello@submitline.com
+            <Mail size={16} /> {info.email}
           </div>
           <div className="flex items-center gap-3">
-            <MapPin size={16} /> Boston · Massachusetts, USA
+            <MapPin size={16} /> {info.location}
           </div>
           <div className="flex items-center gap-3">
             <Clock size={16} /> Typically replies within 24 hours
@@ -160,16 +162,23 @@ function ContactFooter() {
 
         <div className="flex flex-col items-start gap-6 lg:items-end">
           <div className="flex items-center gap-5">
-            {[Twitter, Linkedin, Github, Facebook].map((Icon, i) => (
-              <motion.a
-                key={i}
-                whileHover={{ y: -3, scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className="text-neutral-500 hover:text-black"
-              >
-                <Icon size={18} />
-              </motion.a>
-            ))}
+            {socials.map((item, i) => {
+              const Icon = item.icon;
+                        
+              return (
+                <motion.a
+                  key={i}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -3, scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="text-neutral-500 hover:text-black"
+                >
+                  <Icon size={18} />
+                </motion.a>
+              );
+            })}
           </div>
 
           <p className="max-w-xs text-left text-xs font-medium text-neutral-500 lg:text-right">

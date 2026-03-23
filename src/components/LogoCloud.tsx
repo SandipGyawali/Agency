@@ -41,7 +41,7 @@ const AnimatedLogoCloud = () => {
     <motion.div 
       ref={ref}
       style={{ y, opacity }}
-      className="w-full py-20"
+      className="w-full py-10 md:py-16 lg:py-20"
     >
       <div className="mx-auto w-full px-4 md:px-8">
         <div

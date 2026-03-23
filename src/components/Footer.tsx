@@ -1,6 +1,7 @@
 import React from "react";
-import PixelBlast from "./Doodles/PixelBlast";
 import Image from "next/image";
+import { socials } from "@/data/socials";
+import { info } from "@/data/info";
 
 const Footer = () => {
   const [time, setTime] = React.useState("");
@@ -8,13 +9,13 @@ const Footer = () => {
   React.useEffect(() => {
     const updateTime = () => {
       const formatted = new Date().toLocaleTimeString("en-US", {
-        timeZone: "Asia/Kathmandu",
+        timeZone: "America/New_York",
         hour: "numeric",
         minute: "2-digit",
         hour12: true,
       });
 
-      setTime(`${formatted} · Kathmandu`);
+      setTime(`${formatted} · Boston, USA`);
     };
 
     updateTime(); // initial run
@@ -58,7 +59,7 @@ const Footer = () => {
             <div className="hidden items-center gap-6 md:flex">
               <a
                 className="animated-underline"
-                href="https://instagram.com/hive"
+                href={socials[2].href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -67,7 +68,7 @@ const Footer = () => {
               </a>
               <a
                 className="animated-underline"
-                href="https://x.com/hive"
+                href={socials[1].href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="X / Twitter"
@@ -81,7 +82,7 @@ const Footer = () => {
           <div className="space-y-6">
             <div className="flex items-center justify-center gap-6 md:hidden">
               <a
-                href="https://instagram.com/hive"
+                href={socials[2].href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -90,7 +91,7 @@ const Footer = () => {
                 Instagram
               </a>
               <a
-                href="https://x.com/hive"
+                href={socials[1].href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="X / Twitter"
@@ -102,7 +103,7 @@ const Footer = () => {
 
             <div className="flex flex-wrap items-center justify-center gap-6 md:justify-between">
               <a className="animated-underline" href="mailto:contact@hive.com">
-                contact@bityeti.com
+                {info.email}
               </a>
               <span>{time}</span>
             </div>

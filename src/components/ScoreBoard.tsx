@@ -75,7 +75,7 @@ export default function ScoreBoard({
         Status:
         <span className="font-semibold text-green-700"> Good </span>
       </p>
-      <div className="w-full flex-1 min-w-[350px] md:min-w-[400px]">
+      <div className="w-full flex-1 min-w-[350px] lg:min-w-[400px]">
         <BarChart height={90} items={items} />
       </div>
       <h5 className="mt-4 text-sm text-muted-foreground">Overall Progress</h5>

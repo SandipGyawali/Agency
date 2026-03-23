@@ -1,36 +1,7 @@
 import Link from "next/link";
-import {
-  BsFacebook,
-  BsTwitter,
-  BsGithub,
-  BsYoutube,
-  BsLinkedin,
-} from "react-icons/bs";
 import { cn } from "../lib/utils";
+import { socials } from "@/data/socials";
 
-export const SocialMediaProfiles = [
-  {
-    title: "Youtube",
-    href: "https://www.youtube.com",
-    icon: BsYoutube,
-  },
-  { title: "GitHub", href: "https://github.com/SandipGyawali", icon: BsGithub },
-  {
-    title: "Facebook",
-    href: "www.facebook.com",
-    icon: BsFacebook,
-  },
-  {
-    title: "linkedin",
-    href: "https://www.linkedin.com",
-    icon: BsLinkedin,
-  },
-  {
-    title: "Twitter",
-    href: "https://twitter.com",
-    icon: BsTwitter,
-  },
-];
 
 const SocialHandles = ({
   className,
@@ -48,9 +19,10 @@ const SocialHandles = ({
         className
       )}
     >
-      {SocialMediaProfiles.map((item) => (
+      {socials.map((item) => (
         <li key={item.title}>
           <Link
+            target="_blank"
             href={item.href}
             aria-label={item.title}
             className={cn(
