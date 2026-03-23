@@ -1,10 +1,17 @@
 "use client";
 import React from "react";
-import { motion, Variants } from "framer-motion";
+import { 
+  motion, 
+  Variants 
+} from "framer-motion";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Mail, MapPin, Clock, Twitter, Linkedin, Github, Facebook } from "lucide-react";
+import { 
+  Mail, 
+  MapPin, 
+  Clock 
+} from "lucide-react";
 import Image from "next/image";
 import { socials } from "@/data/socials";
 import { info } from "@/data/info";
@@ -27,7 +34,7 @@ const stagger: Variants = {
 
 export const contactSchema = z.object({
   name: z.string().min(2, "Name is required"),
-  email: z.string().email("Invalid email address"),
+  email: z.email("Invalid email address"),
   phone: z.string().optional(),
   message: z.string().optional(),
 });
@@ -71,13 +78,30 @@ function ContactForm() {
     resolver: zodResolver(contactSchema),
   });
 
+  console.log(errors)
+
   return (
     <motion.form
       variants={stagger}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      onSubmit={handleSubmit((data) => console.log(data))}
+      onSubmit={handleSubmit(async (data) => {
+        try {
+          const res = await fetch("/api/contact", {
+            method: "POST",
+            body: JSON.stringify(data),
+          });
+        
+          if (res.ok) {
+            alert("Message sent successfully!");
+          } else {
+            alert("Something went wrong");
+          }
+        } catch (err) {
+          console.error(err);
+        }
+      })}
       className="space-y-6 lg:space-y-8"
     >
       <motion.div variants={fadeUp}>
