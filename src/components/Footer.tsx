@@ -30,17 +30,17 @@ const Footer = () => {
         {/* Background Canvas */}
         <div className="absolute inset-0 h-full w-full object-cover">
           {/* <PixelBlast /> */}
-            <Image
-              src="/mountain-footer.jpg" 
-              alt="image" 
-              className="w-full h-full object-cover object-center grayscale-75 opacity-70"
-              // fill 
-              width={3000}
-              height={3000}
-              priority 
-              decoding="async" 
-              loading="eager" 
-            />
+          <Image
+            src="/mountain-footer.jpg" 
+            alt="image" 
+            className="w-full h-full object-cover object-center grayscale-75 opacity-70"
+            // fill 
+            width={3000}
+            height={3000}
+            priority 
+            decoding="async" 
+            loading="eager" 
+          />
         </div>
         
 
