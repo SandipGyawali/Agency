@@ -157,10 +157,9 @@ function FAQItem({ q, a }: { q: string, a: string }) {
 }
 
 export default function FAQ({ wantTitle = true, isGrouped = true }: { wantTitle?: boolean,  isGrouped?: boolean }) {
-  const faqItems = faqData.slice(0, 7);
   
   return (
-    <section className="mx-auto px-6 py-16">
+    <section className="mx-auto px-4 lg:px-6 py-16">
       {
         wantTitle && (
           <div className="grid grid-cols-1 gap-15 lg:grid-cols-7 lg:gap-12 mb-16">
@@ -199,19 +198,22 @@ export default function FAQ({ wantTitle = true, isGrouped = true }: { wantTitle?
         </div>
       ))}
 
-      <div className="border border-foreground/10">
-        {!isGrouped && faqData.slice(0, 7).map((group, idx) => (
-            <div key={idx} className="bg-white px-5">
-              <div className="divide-y divide-dashed divide-neutral-300">
-                {group.items.filter((val => val.h === true)).map((item, i) => (
-                  <FAQItem key={i} q={item.q} a={item.a} />
-                ))}
-              </div>
-            </div>
-          ))
-        }
-      </div>
-
+      {
+        !isGrouped && (
+          <div className="border border-foreground/10">
+            {!isGrouped && faqData.slice(0, 7).map((group, idx) => (
+                <div key={idx} className="bg-white px-5">
+                  <div className="divide-y divide-dashed divide-neutral-300">
+                    {group.items.filter((val => val.h === true)).map((item, i) => (
+                      <FAQItem key={i} q={item.q} a={item.a} />
+                    ))}
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        )
+      }
     </section>
   );
 }
