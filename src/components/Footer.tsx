@@ -53,6 +53,7 @@ const Footer = () => {
               <a className="animated-underline" href="/services">Services</a>
               <a className="animated-underline" href="/projects">Work</a>
               <a className="animated-underline" href="/about">Studio</a>
+              <a className="animated-underline" href="/faq">Faqs</a>
               <a className="animated-underline" href="/contact">Contact</a>
             </nav>
 

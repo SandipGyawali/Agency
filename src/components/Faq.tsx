@@ -4,57 +4,117 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const faqData = [
   {
-    group: "Submissions",
+    group: "Services & Expertise",
     items: [
       {
-        q: "How can I submit my site?",
-        a: "Create an account, go to the Submissions page, and follow the steps to submit your site for review.",
+        q: "What services does Summit Line Tech specialize in?",
+        a: "We provide end-to-end solutions across AI development, MLOps infrastructure, and cloud engineering. This includes building production-ready machine learning systems, automating model lifecycle pipelines, and designing scalable cloud architectures tailored to business needs.",
         h: true
       },
       {
-        q: "What size is the main image thumbnail?",
-        a: "The recommended thumbnail size is 1600×1200px for best quality.",
+        q: "What industries do you work with?",
+        a: "We work across industries including fintech, healthcare, SaaS, e-commerce, and logistics. Our solutions are tailored to industry-specific challenges such as compliance, scalability, and data sensitivity.",
         h: true
       },
       {
-        q: "Can I add more images/videos to my submission?",
-        a: "Yes, you can upload additional images and videos from the edit submission page.",
+        q: "Do you build custom AI solutions or use pre-built models?",
+        a: "We do both. For high-impact use cases, we design custom models tailored to your data. For faster delivery, we also integrate and optimize proven pre-trained models when appropriate.",
         h: false
       }
     ]
   },
   {
-    group: "Approval",
+    group: "AI & MLOps",
     items: [
       {
-        q: "How long does it take for my site to be approved?",
-        a: "Reviews usually take 2–5 business days, depending on submission volume.",
+        q: "What is MLOps and why does my business need it?",
+        a: "MLOps is the practice of deploying, monitoring, and maintaining machine learning models in production. Without it, models degrade over time. We ensure your AI systems remain accurate, scalable, and reliable in real-world environments.",
         h: true
       },
       {
-        q: "How can I edit my submission?",
-        a: "You can edit your submission anytime before approval from your dashboard.",
+        q: "How do you ensure model performance over time?",
+        a: "We implement continuous monitoring, automated retraining pipelines, drift detection, and performance alerts to ensure your models stay accurate and aligned with real-world data changes.",
+        h: true
+      },
+      {
+        q: "Can you integrate AI into our existing systems?",
+        a: "Yes, we specialize in integrating AI into existing platforms, APIs, and workflows without disrupting your current operations.",
         h: false
       }
     ]
   },
   {
-    group: "Billing",
+    group: "Cloud & Infrastructure",
     items: [
       {
-        q: "Can I submit website templates?",
-        a: "Yes, templates are allowed as long as they meet our quality guidelines.",
+        q: "Which cloud platforms do you support?",
+        a: "We work with AWS, Google Cloud, and Azure. We help you choose, migrate, and optimize the best platform based on your performance, cost, and scalability requirements.",
         h: true
       },
       {
-        q: "How can I pay for a submission with a credit?",
-        a: "Credits can be applied at checkout when submitting your site.",
-        h: true,
+        q: "Do you help reduce cloud costs?",
+        a: "Yes. We audit your infrastructure, eliminate inefficiencies, and implement cost-optimized architectures such as auto-scaling, spot instances, and workload right-sizing.",
+        h: true
       },
       {
-        q: "How can I add credits to my submission?",
-        a: "You can purchase credits from the Billing section of your account.",
+        q: "Can you handle cloud migrations?",
+        a: "We manage end-to-end cloud migrations, ensuring minimal downtime, data integrity, and improved system performance post-migration.",
+        h: false
+      }
+    ]
+  },
+  {
+    group: "Security & Compliance",
+    items: [
+      {
+        q: "How do you ensure data security?",
+        a: "We follow industry best practices including encryption, secure access controls, network isolation, and compliance with standards like SOC 2 and GDPR where applicable.",
         h: true
+      },
+      {
+        q: "Do you work with sensitive or regulated data?",
+        a: "Yes, we have experience working with regulated environments such as healthcare and finance, ensuring compliance with relevant standards and secure data handling practices.",
+        h: true
+      }
+    ]
+  },
+  {
+    group: "Engagement & Process",
+    items: [
+      {
+        q: "What does your typical project process look like?",
+        a: "We start with discovery and requirements analysis, followed by architecture design, development, testing, deployment, and continuous optimization. We maintain transparency at every stage.",
+        h: true
+      },
+      {
+        q: "How long does a typical project take?",
+        a: "Timelines vary based on complexity. MVPs can take 4–8 weeks, while full-scale AI systems or infrastructure projects may take several months.",
+        h: false
+      },
+      {
+        q: "Do you offer ongoing support after deployment?",
+        a: "Yes, we provide ongoing monitoring, maintenance, optimization, and support to ensure long-term success of your systems.",
+        h: false
+      }
+    ]
+  },
+  {
+    group: "Pricing & Engagement",
+    items: [
+      {
+        q: "How is your pricing structured?",
+        a: "We offer flexible pricing models including fixed-price projects, hourly engagements, and long-term retainers depending on your needs.",
+        h: true
+      },
+      {
+        q: "Do you offer consultations before starting a project?",
+        a: "Yes, we provide initial consultations to understand your requirements, evaluate feasibility, and propose the best technical approach.",
+        h: false
+      },
+      {
+        q: "Can startups work with you?",
+        a: "Absolutely. We work with startups to build scalable foundations early, helping them avoid costly technical debt as they grow.",
+        h: false
       }
     ]
   }
@@ -97,6 +157,8 @@ function FAQItem({ q, a }: { q: string, a: string }) {
 }
 
 export default function FAQ({ wantTitle = true, isGrouped = true }: { wantTitle?: boolean,  isGrouped?: boolean }) {
+  const faqItems = faqData.slice(0, 7);
+  
   return (
     <section className="mx-auto px-6 py-16">
       {
@@ -138,7 +200,7 @@ export default function FAQ({ wantTitle = true, isGrouped = true }: { wantTitle?
       ))}
 
       <div className="border border-foreground/10">
-        {!isGrouped && faqData.map((group, idx) => (
+        {!isGrouped && faqData.slice(0, 7).map((group, idx) => (
             <div key={idx} className="bg-white px-5">
               <div className="divide-y divide-dashed divide-neutral-300">
                 {group.items.filter((val => val.h === true)).map((item, i) => (
