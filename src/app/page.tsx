@@ -4,7 +4,6 @@ import Features from "@/components/Features";
 import Hero from "@/components/Hero";
 import AnimatedLogoCloud from "@/components/LogoCloud";
 import { QuickServicesSection } from "@/components/QuickService";
-import Testimonials from "@/components/Testimonials";
 
 function Home() {
   return (
@@ -14,7 +13,7 @@ function Home() {
         <AnimatedLogoCloud />
         <Features />
         <QuickServicesSection />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <FAQ wantTitle={true} isGrouped={false}/>
         <ContactUs />
       </div>
